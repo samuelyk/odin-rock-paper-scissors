@@ -66,7 +66,90 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+/* To play one round 
+// const humanSelection = getHumanChoice();
+// const computerSelection = getComputerChoice();
 
-playRound(humanSelection, computerSelection);
+// playRound(humanSelection, computerSelection);
+*/
+
+function playGame() {
+    let humanPoints = 0, computerPoints = 0;
+
+    function playRound(humanChoice, computerChoice) {
+        
+        humanChoice = humanChoice.toLowerCase();
+
+        if (humanChoice === "rock") { 
+            switch (computerChoice) {
+                case "rock":
+                    console.log("No winner! Let's play again.");
+                    break;
+                case "paper":
+                    console.log("Computer wins!");
+                    computerPoints++;
+                    break;
+                case "scissors":
+                    console.log("You win!");
+                    humanPoints++;
+                    break;
+            }
+        } else if (humanChoice === "paper") {
+            switch (computerChoice) {
+                case "rock":
+                    console.log("You win!");
+                    humanPoints++;
+                    break;
+                case "paper":
+                    console.log("No winner! Let's play again.");
+                    break;
+                case "scissors":
+                    console.log("Computer wins!");
+                    computerPoints++;
+                    break;  
+            }
+        } else if (humanChoice === "scissors") {
+            switch (computerChoice) {
+                case "rock":
+                    console.log("Computer wins!");
+                    computerPoints++;
+                    break;
+                case "paper":
+                    console.log("You win!");
+                    humanPoints++;
+                    break;
+                case "scissors":
+                    console.log("No winner! Let's play again.");
+                    break;  
+            }
+        }
+    }
+
+    let humanSelection = getHumanChoice();
+    let computerSelection = getComputerChoice();
+
+    playRound(humanSelection, computerSelection);
+
+    humanSelection = getHumanChoice();
+    computerSelection = getComputerChoice(); 
+
+    playRound(humanSelection, computerSelection);
+
+    humanSelection = getHumanChoice();
+    computerSelection = getComputerChoice(); 
+
+    playRound(humanSelection, computerSelection);
+
+    humanSelection = getHumanChoice();
+    computerSelection = getComputerChoice(); 
+
+    playRound(humanSelection, computerSelection);
+
+    humanSelection = getHumanChoice();
+    computerSelection = getComputerChoice(); 
+
+    playRound(humanSelection, computerSelection);
+
+    console.log("Human point is: " + humanPoints);
+    console.log("Computer point is: " + computerPoints);
+}
